@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Interval Timer">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#12151b">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF4WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuZWRhMmIzZmFjLCAyMDIxLTExLTE3IDE0OjA3OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjMuMSAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjQtMDktMTJUMTA6NTk6MDArMTA6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDI0LTA5LTEyVDEwOjU5OjAwKzEwOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDI0LTA5LTEyVDEwOjU5OjAwKzEwOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDowMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiIHN0RXZ0OndoZW49IjIwMjQtMDktMTJUMTA6NTk6MDArMTA6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMy4xIChNYWNpbnRvc2gpIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgD/2Q==">
 <title>Interval Timer</title>
 <style>
   :root{
@@ -93,6 +94,9 @@
   }
   .round-label{
     font-size:14px; color:var(--text-dim); margin-top:6px;
+  }
+  .total-label{
+    font-size:13px; color:var(--text-dim); margin-top:2px; opacity:0.85;
   }
   .controls{
     display:flex; align-items:center; justify-content:center; gap:22px;
@@ -220,6 +224,7 @@
       </div>
     </div>
     <div class="round-label" id="roundLabel">8 rounds · 20s / 10s</div>
+    <div class="total-label" id="totalLabel">Total 0:00</div>
   </main>
   <div class="controls">
     <button class="btn-reset" id="resetBtn">Reset</button>
@@ -286,6 +291,7 @@
   const phaseLabel = document.getElementById('phaseLabel');
   const timeDisplay = document.getElementById('timeDisplay');
   const roundLabel = document.getElementById('roundLabel');
+  const totalLabel = document.getElementById('totalLabel');
   const ringProgress = document.getElementById('ringProgress');
   const mainBtn = document.getElementById('mainBtn');
   const resetBtn = document.getElementById('resetBtn');
@@ -298,8 +304,7 @@
   const CIRC = 2 * Math.PI * 130;
 
   let settings = { prep: 5, work: 20, rest: 10, rounds: 8 };
-  // Special mode for complex Tabata (4 cycles × 5 rounds)
-  let specialMode = null; // null | 'tabata4x5'
+  let specialMode = null;
 
   const limits = {
     prep:  {min:0, max:30, step:1},
@@ -309,6 +314,25 @@
   };
 
   function fmtSetting(field, v){ return field === 'rounds' ? String(v) : v + 's'; }
+
+  function calcTotalSeconds(){
+    if(specialMode === 'tabata4x5'){
+      // 4 cycles × 5 rounds of 20s work
+      // Inside each cycle: 4 short rests of 5s
+      // Between cycles: 3 long rests of 10s
+      // + prep
+      return settings.prep + (20 * 20) + (5 * 16) + (10 * 3);
+    }
+    const workTotal = settings.work * settings.rounds;
+    const restTotal = settings.rest * Math.max(0, settings.rounds - 1);
+    return settings.prep + workTotal + restTotal;
+  }
+
+  function fmtTotal(sec){
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return m + ':' + String(s).padStart(2,'0');
+  }
 
   function refreshSettingUI(){
     document.getElementById('prepVal').textContent = fmtSetting('prep', settings.prep);
@@ -322,11 +346,11 @@
       roundLabel.textContent = settings.rounds + (settings.rounds===1 ? ' round · ' : ' rounds · ') +
         settings.work + 's' + (settings.rest>0 ? ' / ' + settings.rest + 's' : '');
     }
+    totalLabel.textContent = 'Total ' + fmtTotal(calcTotalSeconds());
   }
 
   document.querySelectorAll('.stepper button').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      // Changing any stepper cancels special mode
       specialMode = null;
       const field = btn.dataset.field;
       const dir = parseInt(btn.dataset.dir,10);
@@ -381,7 +405,6 @@
     }
   });
 
-  // ---- storage ----
   const CUSTOM_KEY = 'custom-routines';
   const HIDDEN_KEY = 'hidden-builtin-routines';
   const LAST_KEY = 'last-used-settings';
@@ -502,7 +525,6 @@
   backdrop.addEventListener('click', closeSettings);
   function closeSettings(){ sheet.classList.remove('open'); backdrop.classList.remove('open'); }
 
-  // ---- voice ----
   let voiceOn = true;
   voiceBtn.classList.add('active');
   voiceBtn.addEventListener('click', ()=>{
@@ -515,30 +537,31 @@
     if(!voiceOn || !window.speechSynthesis) return;
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.rate = 1.05; u.pitch = 1.0; u.volume = 1.0;
+    u.rate = 0.95;
+    u.pitch = 1.0;
+    u.volume = 1.0;
     window.speechSynthesis.speak(u);
   }
 
-  // ---- beeps ----
   let audioCtx = null;
   function ensureAudio(){ if(!audioCtx){ audioCtx = new (window.AudioContext||window.webkitAudioContext)(); } }
-  function beep(freq, dur, when=0){
+  function beep(freq, dur, when=0, vol=0.5){
     if(!audioCtx) return;
     const t0 = audioCtx.currentTime + when;
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
-    osc.type = 'sine'; osc.frequency.value = freq;
+    osc.type = 'sine';
+    osc.frequency.value = freq;
     gain.gain.setValueAtTime(0.0001, t0);
-    gain.gain.exponentialRampToValueAtTime(0.5, t0+0.01);
+    gain.gain.exponentialRampToValueAtTime(vol, t0+0.01);
     gain.gain.exponentialRampToValueAtTime(0.0001, t0+dur);
     osc.connect(gain); gain.connect(audioCtx.destination);
     osc.start(t0); osc.stop(t0+dur+0.02);
   }
-  function tickBeep(){ beep(880, 0.08); }
+  function tickBeep(){ beep(1100, 0.12, 0, 0.65); }          // clearer last-3-seconds beep
   function transitionBeep(){ beep(660,0.09,0); beep(990,0.12,0.11); }
   function finishBeep(){ beep(880,0.15,0); beep(1175,0.15,0.16); beep(1568,0.22,0.32); }
 
-  // ---- wake lock ----
   let wakeLock = null;
   async function requestWakeLock(){
     try{ if('wakeLock' in navigator){ wakeLock = await navigator.wakeLock.request('screen'); } }catch(e){}
@@ -548,7 +571,6 @@
     if(document.visibilityState === 'visible' && state.mode === 'running') requestWakeLock();
   });
 
-  // ---- timer engine ----
   let state = { mode:'idle', phases:[], idx:-1, endTs:0, remaining:0, lastTickSecond:null, pausedRemaining:null };
   let rafId = null;
 
@@ -557,23 +579,19 @@
     if(settings.prep > 0) p.push({type:'prep', dur:settings.prep});
 
     if(specialMode === 'tabata4x5'){
-      // 4 cycles × 5 rounds of 20s work / 5s rest, with 10s rest between cycles
       let roundNum = 0;
       for(let cycle = 1; cycle <= 4; cycle++){
         for(let r = 1; r <= 5; r++){
           roundNum++;
           p.push({type:'work', dur:20, round:roundNum, cycle:cycle});
           if(r < 5){
-            // short rest inside the cycle
             p.push({type:'rest', dur:5, round:roundNum, cycle:cycle});
           } else if(cycle < 4){
-            // longer rest between cycles
             p.push({type:'rest', dur:10, round:roundNum, cycle:cycle, long:true});
           }
         }
       }
     } else {
-      // Normal simple mode
       for(let i=1; i<=settings.rounds; i++){
         p.push({type:'work', dur:settings.work, round:i});
         if(settings.rest > 0 && i < settings.rounds){
@@ -671,7 +689,7 @@
 
     transitionBeep();
     if(ph.type === 'prep') speak('Get ready');
-    else if(ph.type === 'work') speak(ph.round ? ('Go, round ' + ph.round) : 'Go');
+    else if(ph.type === 'work') speak(ph.round ? ('Work. Round ' + ph.round) : 'Work');
     else speak(ph.long ? 'Long rest' : 'Rest');
   }
 
@@ -682,6 +700,7 @@
     timeDisplay.textContent = '00:00';
     const totalRounds = specialMode === 'tabata4x5' ? 20 : settings.rounds;
     roundLabel.textContent = 'Nice work — ' + totalRounds + ' rounds complete';
+    totalLabel.textContent = 'Total ' + fmtTotal(calcTotalSeconds());
     ringProgress.style.strokeDashoffset = 0;
     mainBtn.textContent = 'Start';
     finishBeep();
