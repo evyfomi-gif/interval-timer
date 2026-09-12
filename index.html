@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#12151b">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAATXklEQVR4nO3dL68kx7nA4V7LLGyjRatIkSWDy5IvEmYWs/DFDjAIcMgl/gwJC/MXibmlKJKx4eUXzGr2eM45M9M93VXvn+dBV469O7pb/f6qqufYb96+e78A0M9nsz8AAHMIAEBTAgDQlAAANCUAAE0JAEBTAgDQlAAANCUAAE0JAEBTAgDQlAAANCUAAE0JAEBTAgDQlAAANCUAAE0JAEBTAgDQlAAANCUAAE0JAEBTAgDQlAAANPX57A8AO/jm2+/G/6Z//9tfx/+msKM3b9+9n/0ZYKMpc/85JSApV0BkFWT6L5E+CaziBEA+YQeuowC5OAGQTNjpv8T+bPCcAJBJ/Akb/xPCmQAANCUApJFlc53lc4IAkEOuqZrr09KWAAA0JQAATQkACWS8Ucn4melGAACaEgCApgQAoCkBAGhKAACaEgCApgQAoCkBAGhKAACaEgCApgQAoCkBAGjq89kfAEb755e/efGv//jD9//7P38Z/GFgIgGgi9fm/tkf/vTh9H/8+af/O/7jwHwCQH03R/+Lf78MUJ4AUNna0f/8n5UBCvMSmAT+/re/bvinHpn+j/8i2z4zjCQA1LTL9N/9l4JQBICCdh/ZGkBJAkAO99+oHDSsV/2y7n9IQQBII8tUzfI5QQAo5dC7GhdBFCMAZBJ/cx3/E8KZAJDMlQk7YId+/bcw/cnlzdt372d/Btjim2+/u/grY65oXvzRMKOfjJwAyOpi5g67oH/+G5n+JOUEQAXffPvdyDe0p0OAuU92AkARv/vH98N+r5+//jDs94LjuAICaEoAAJryr4Mmq5F3Phd++eqLi7/y23/9Z8ongUcIAAlMnPV3ep6ERRUITwAIJ/64v5ODAsEJAPOVmfg3XSRBD5jL10CZI+/Q//GHQz65GDCeEwDj5B36Azw9HIgBYzgBcLhKc/+g7f9rlIBDOQFwiEpDfyLHAg7lBMCeas/9wdv/1ygBe3ECYAe1534052OBEvAgJwC2azX3g2z/X6QEbCMAbNFq9C+xp/+ZDLCWALBCt7l/kmL6P6UE3EkAuEvP0b8knP5nMsBNAsA1bef+knn0X1ACXiMAvMzoL0YGeE4AuNR29Jec+xdkgKcEgE96jv4Oc/+CDHDiB8FYlq6jv63Tj5LJAALQndHflgwgAH0Z/Swy0JsAdGT0c0EGehKAXox+rpCBbgSgC6OfO8lAHwJQn9HPBjLQwWezPwDHMv15xNP/JBn1OAGUZfSzC0eBwgSgIKOf3clASa6AqjH9OY4boWKcAOow+hnAUaASJ4AiTH9GchSowQkgPaOfKRwFCnACyM30Zy5HgdT89wCyMvpv+vnrD3v9UsbcTY4CGQlASqb/2Y5TfhttONOAdAQgn87Tf/q4v0fnJGhALgKQScPRn2LiX9ewBzKQhQCk0WT6F5j41zXpgQakIAA51J7+5Yf+a2rHQAPiE4DoCo/+tnP/ucIlkIHIBCC0ktPf3L+iZAk0ICwBiKvY9Df3VylWAg2ISQCCKjP9zf0HlSmBBgQkAOHUGP3m/u5qlEAGQhGAWApMf6P/UAUyoAFxCEAgqae/uT9Y6hJoQBACEEXe6W/0T5Q3AxoQgQCEkHT6G/1BJM2ABkwnAPOlm/7mfljpSqABcwnAZLmmv9GfQq4MaMBEAjCN0c+hZICb/Cch5zD9OVqukZorV2U4AUyQaPob/QUkmq25olWAAIyWZfob/cVkyYAGjCQAQ6WY/kZ/YSkyoAHDeAcwjunPdClma4pK1eAEMEj86W/0txJ/yKZoVXYCMELw6W/0txU8AxpwNFdAhzP9CSv4hA3epwKcAI4Vefob/ZxFHrXBK5WaE0BTpj9PGbI9OQEcKOb23+jniphHAX06iBPAUUx/Moo5amNmqQABOITpT14a0IcroP0FnP5GPxsEnLkx45SXE8DOTH/KCDhtAzYpNQHYk+lPMRpQmyug3USb/kY/O4o2dgOWKSMngJpMf/Zl4JYkAPsItf03/TlCqAZEO5EkJQA7MP1pQgOKEYBHmf60ogGVeAn8kDjT3+hnsDjDN1STcnECqMD0ZzxjtwAB2C7I9t/0Z5YgDYhzFklHADYy/WHRgOQEYAvTH840IC8ByMr0J44gDWAtAVgtwvbf9CeaCA1wCFhLANYx/eE1GpCOAKxg+sN1GpCLAGRi+hNfhAZwJwG41/Ttv+lPFtMb4BBwJwG4i+kPq2hACgKQgOlPRtMbwE0CcNvc7b/pT15zG+AQcJMA3DD98gfYTAOuE4DQbP/JzkVQZAJwjcsfeJyLoLAE4FWmP+xFA2ISgIhMf+pxFxSQALxs4vbf9KeqiQ1wCHiRAAA0JQAvsP2HgzgEhCIAl0x/OJQGxCEAUZj+9OGFcBAC8Ct+7hdqcwh4SgBCsP2nG4eACATgk1nbf9OfnmY1wCHgTAAmM/3pzDlgLgH4yO0/9OEQcCIAM9n+g0PARAKwLJO2/6Y/nExpgEPAIgAAbQmA7T/M5xAwhQBMYPrDc14GjNc9AL78A501PwR0D8B4tv/wGoeAwVoHwPYf6HwIaB2A8Wz/4TqHgJH6BmD89t/0h3uMb0DbQ0DfAAA01zQAtv8QmUPAGE0DAEDHANj+Q3wOAQN0DAAAiwAMYPsP2/hK6NHaBWDw/Y/pD48Y3IBut0DtAgDASa8A2P5DOg4Bx+kVAADOBOAotv+wF2+DD9IoAP7dn8A9+twCNQoAAE91CYDXv5CaV8FH6BIAAC4IwP5s/+EIXgXvrkUAvP4F1upwC9QiACPZ/sNxHAL2JQAATdUPgPsfYJvyt0D1AzCS+x84mlugHQkAQFPFAzDy/sf2H8YYeQiofQtUPAAAvEYAAJoSgH24/4GRvAreReUA+AIo8LjCrwEqBwCAKwRgB+5/YDy3QI8rGwD3P8Beqt4ClQ0AANcJwKPc/8AsboEeJAAATdUMgBcAwL5KvgaoGYBh3P/AXG6BHiEAAE0JAEBTBQMw7AWA+x+IYNgtUL3XAAUDAMA9BACgKQEAaEoANvICAOLwZdBtqgXAj4ABxyn2HrhaAAC4kwAANCUAAE0JwBbeAEM03gNvIAAATZUKgK8AAUer9EWgUgEA4H4CANCUAKzmDTDE5D3wWgIA0JQAADQlAABN1QmA74ACY5T5JmidAACwigCs4ytAEJkvAq0iAABNCQBAUwIA0JQAADQlAABNCQBAU5/P/gAwwX9/+vfzv/j7L/84/pPAREUC4MeAuceLc//5/6oE3PTLV18U+JkDV0Ar+Cmw1K5P/21/JwEVmMvDFDkBwBUbBvrpH3EUoDYnAIp7ZDvvKEBtAkBlj09wDaAwAQBoSgAoa6/Nu0MAVQkANe07tTWAkgQAoCkBAGhKACjoiBsbt0DU4wfB4F7+XREUIwCwmhJQgwDAdkpAat4BwA7++9O/vSQgHScA2I0DAbkIAOxPCUjBFRAFxRm7p6sht0PE5AQAIzgTEJATAAzlQEAcAkBNwTfaroaIQAAoK3gDTpSAibwDgBC8JGA8JwAqyzhMnQkYRgAoLmMDTmSAowkA9f3+yz+uzUCcbDgQcJw3b9+9n/0ZdvC7f3w/5jf6+esPY34jjnDnGL2Y/tGGb5w4xfTLV1+M+Y1++6//jPmNjlMkAMuoBghADS/O9JuDVQlSGBOAAtN/8S0geto2Os//VJAS+OIQD/IOAFbb8FLhUF4SsI0TAGzkQEB2AgCPUgKSEgDYjRKQiwDA/pSAFLwEhgN5XUxkfg5gNT8KwGbRhm+oOO3CT4Gt4goIxnE1RCh1roBszEnkdDVk7CZVY/u/OAHAXBHOBDrUVp0TAKTmQMB4TgAQSIQDAX04Aaw27OtGdDbsJUGlY8ewrwCV4QQAoTkTcBwBgByUgN2VugLyTVA62PFqqNL9zzBlvgO6OAFAUg4EPK7UCWAY74GJw8+UnXgDvIETABSx9kygGQgAVON2iDu5AoKyXA1xXbUA+CIQXHjxJYEwbFPpK0BLvQAM4z0w6RR+XewN8DYCAO2UbAAbCABAUwIA0FTBAAx7D+w1AETgvwO8WcEAAHAPAQBoSgAe4hYI5vIF0EfUDIAfBwP2Ve8FwFI1AADcJACPcgsEs7j/eZAAADRVNgBeAwB7KfkCYCkcgJHcAsF47n8eJwAATVUOgFsg4HFV73+W2gEYyS0QjOT+ZxcCANCUAAA0VTwAI18DuAWCMUbe/xR+AbCUDwAArxGAPTkEwNG8/t1R/QD4MiiwTe37n6VDAAB4kQDszC0QHMf9z75aBMAtELBW+fufpUkABnMIgCPY/u9OAACa6hKAwbdADgGwr8Hb/w73P0ufAABwoVEAvAoG7tFk+7+0CsBgboFgL17/HkQAAJrqFQCvgiEdr3+P0ysAAJy1C4BDACRi+3+odgEYTwNgG+9+jyYAAE11DMD4HwhwCIC1xm//u93/LD0DAMDSNgAOARCZ7f8YTQMAQN8AOARATLb/w/QNwBQaANf56udIrQPg3w8KtN3+L80DMIVDALzG9n+w7gFwCIDOOm//FwGYwiEAnrP9H08A5hwCNACemjL9m2//FwEAaEsAlsUhAKay/Z9FAGbSAHD1P5EAfOTrQNCH7f+JAEzmEEBntv9zCcAnsw4BGkBPs6a/7f+ZAMz34w/f2wfRjTUfweezP0AsP3/94cX9+I8/vLpJ/8Oftp8brvyywBFs/58SgBtuzujT37AhAxe/8i9ffWFp0oTtfxBv3r57P/szhHM6BGzYnt+fgdd+cQ2gvInT3/N1QQBe8OACvZ6Bm12xRinM9A/FS+BLjy/QKyPepT8QhxPAr+y4Pbk4B6wa/bYqlGT7H40TwCf7rs6nE3/txt8rMuqxqgMSgI+OWJ2nub/t2sfTQiVz17Pt/2tcAX0Uc+BauBRg+oflBLAssxfoFWE/GNzJGo5MAICybP+vE4DoO5TgHw+ucPkTnAAkoAFkZN3G1z0AWdZols8JJ9NXrO3/PboHIJHpTxTcafpaNf3vJACZTH+u4CarNBEBSMbTRWQR1qft//0EIJ8Izxg8F2Flmv6rCEBKEZ40eCrCmjT91xKArCI8b3BiNSYlAIl56oggyDq0/d9AAHIL8uzRVpAVaPpv0z0ABdZNkCeQhoKsvQJP8SzdA1BDkOeQVqy6Avz3AJal0FK2FWKAUM+LNf8IJ4BSQj2ZlBRqjZn+DxKAZam1jEI9nxQTanVVemxnEYCCQj2llBFqXZn+uxCAj4qtp1DPKgVYUSV5Cfwr9VZ5sbAxXsCHwqreixPAr9RbWAGfXhIJuH7qPaQTCcClessr4DNMCgFXTr3Hcy5XQK/asPrPqzPgk7N4eLibBdyEANxw55PwfGl6hEjK0u1DAO5y5ZG4si49SKRj0bYiAMeK+TgtniiesVYb8hK4qbBPO1NYDz05ARwu+KNle9Wc9dmZE8Dhgq/g4M8/hwr+px/82SnACWCQ4E/a4mFrxoJkEYCR4j9yi6euAeuQM1dA46RY0ymmA5ul+PNN8aTU4AQwWooncPEQlmPh8ZwATJDlUVw8jSVYb7xGAOZI9EwuHsu0LDOu8w5gjlxrPdcc4STXn1quJ6IMJ4DJPKXszqLiTgIwX67HdfHEBmYtsYoAhJDuuT3x9AZh/bCNAESR9BlePMZTWTY8QgACyfswL57n4awWHicAsaR+qk8824eyQtiRAIRT4AlfPOQHsDDYnQAEVeNpXzzwD7MSOI4AxFXmyT/x/K/iT58BBCC0YlPgxCy4wp84IwlAdCUnwom5cOZPmSkEIIfCA2JpPCP8sTKXAKRRe1iclZ8a/hyJQwAyaTI7niowR/ypEZYA5NNwoJylmCz+gMhCAFLqPGIuTJ84/izOpv9ZsJYAZGXu3LTjPPL/7ZtM/4wEIDeDiemM/rz8JyFz8+wxlxWYmhNAEY4CDGb0F+AEUISnkZGstxqcAKpxFOBQRn8lTgDVeD45jtVVjBNAWY4C7MjoL0kAipMBHmT0F+YKqDhPL4+wfmpzAujCUYBVjP4OBKAXGeAmo78PAehIBniR0d+NAPQlA5wZ/T0JQHcy0JzR35kAsCwy0JLRjwDwiQw0YfRzIgBckoHCjH6eEgBeJgPFGP08JwBcIwMFGP28RgC4ixKkY+5zkwCwggykYPRzJwFgCyUIyNxnLQFgOxkIwuhnGwFgB0owhbnPgwSAPSnBAOY+exEADqEEuzP32Z0AcDgx2MzQ51ACwDhKcCdznzEEgDnE4IKhz3gCwHxtY2DoM5cAEE7hHpj4hCIAJJA0CcY9wQkAWYWqgllPRgJATbvnwYinHgEAaOqz2R8AgDkEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmhIAgKYEAKApAQBoSgAAmvp/4W10Fa1VygUAAAAASUVORK5CYII=">
+<title>Interval Timer</title>
+<style>
+  :root{
+    --bg:#12151b;
+    --surface:#1b1f27;
+    --surface-2:#232833;
+    --text:#f2f0ea;
+    --text-dim:#8b93a1;
+    --work:#ff6a3d;
+    --rest:#2fb8ac;
+    --prep:#6c7ce0;
+    --idle:#8b93a1;
+    --ring-track:#262b34;
+    --phase: var(--idle);
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0; padding:0; height:100%;
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overscroll-behavior:none;
+    -webkit-tap-highlight-color: transparent;
+    user-select:none;
+  }
+  #app[data-phase="work"]{ --phase: var(--work); }
+  #app[data-phase="rest"]{ --phase: var(--rest); }
+  #app[data-phase="prep"]{ --phase: var(--prep); }
+  #app[data-phase="idle"], #app[data-phase="done"]{ --phase: var(--idle); }
+  #app{
+    height:100%;
+    display:flex; flex-direction:column;
+    padding: calc(var(--safe-top) + 14px) 18px calc(var(--safe-bottom) + 18px);
+    transition: background 0.4s ease;
+  }
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    flex:0 0 auto;
+  }
+  header h1{
+    font-size:15px; font-weight:600; letter-spacing:0.2px; color:var(--text-dim);
+    margin:0;
+  }
+  .icon-btn{
+    width:38px; height:38px; border-radius:12px;
+    background:var(--surface); border:none; color:var(--text);
+    display:flex; align-items:center; justify-content:center;
+    font-size:17px;
+  }
+  .icon-btn.active{ color:var(--phase); }
+  main{
+    flex:1 1 auto;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:6px;
+    min-height:0;
+  }
+  .phase-label{
+    font-size:clamp(18px,5vw,22px); font-weight:600; color:var(--phase);
+    transition: color 0.3s ease;
+    height:28px;
+  }
+  .ring-wrap{
+    position:relative;
+    width:min(72vw, 320px); height:min(72vw, 320px);
+    margin:8px 0;
+  }
+  .ring-wrap svg{ width:100%; height:100%; transform:rotate(-90deg); }
+  .ring-track{ fill:none; stroke:var(--ring-track); stroke-width:14; }
+  .ring-progress{
+    fill:none; stroke:var(--phase); stroke-width:14; stroke-linecap:round;
+    transition: stroke 0.3s ease;
+  }
+  .time-display{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .time{
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size:clamp(52px, 16vw, 76px); font-weight:600; line-height:1;
+    letter-spacing: -1px;
+  }
+  .round-label{
+    font-size:14px; color:var(--text-dim); margin-top:6px;
+  }
+  .controls{
+    display:flex; align-items:center; justify-content:center; gap:22px;
+    flex:0 0 auto; margin-top:4px;
+  }
+  .btn-reset, .btn-skip{
+    width:52px; height:52px; border-radius:50%;
+    background:var(--surface); border:none; color:var(--text-dim);
+    font-size:13px; font-weight:600;
+  }
+  .btn-main{
+    width:84px; height:84px; border-radius:50%;
+    background:var(--phase); border:none; color:#12151b;
+    font-size:16px; font-weight:700;
+    transition: background 0.3s ease;
+  }
+  .sheet{
+    position:fixed; left:0; right:0; bottom:0;
+    background:var(--surface);
+    border-radius:22px 22px 0 0;
+    padding:10px 18px calc(var(--safe-bottom) + 22px);
+    transform: translateY(100%);
+    transition: transform 0.28s ease;
+    max-height:78vh; overflow-y:auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sheet.open{ transform: translateY(0); }
+  .sheet-handle{
+    width:36px; height:4px; border-radius:2px; background:var(--ring-track);
+    margin:6px auto 14px;
+  }
+  .sheet h2{ font-size:16px; margin:0 0 12px; font-weight:600; }
+  .presets{
+    display:flex; gap:8px; overflow-x:auto; padding-bottom:14px;
+  }
+  .chip{
+    flex:0 0 auto;
+    background:var(--surface-2); color:var(--text);
+    border:none; border-radius:999px; padding:9px 14px; font-size:13px; font-weight:600;
+    white-space:nowrap;
+    position:relative;
+  }
+  .chip.custom, .chip.builtin{ padding-right:30px; }
+  .chip.custom .del, .chip.builtin .del{
+    position:absolute; right:5px; top:50%; transform:translateY(-50%);
+    width:19px; height:19px; border-radius:50%;
+    background:rgba(0,0,0,0.28); border:none; color:var(--text);
+    font-size:12px; line-height:1; display:flex; align-items:center; justify-content:center;
+  }
+  .chip.add-chip{
+    background:transparent; border:1.5px dashed var(--text-dim); color:var(--text-dim);
+  }
+  .save-row{
+    padding-bottom:14px; margin-bottom:6px; border-bottom:1px solid var(--surface-2);
+  }
+  .save-form{ display:flex; gap:8px; }
+  .save-form input{
+    flex:1; min-width:0; background:var(--surface-2); border:none; border-radius:10px;
+    padding:11px 12px; color:var(--text); font-size:14px;
+  }
+  .save-form input::placeholder{ color:var(--text-dim); }
+  .save-form button{
+    padding:11px 14px; border-radius:10px; border:none; font-weight:600; font-size:14px; flex:0 0 auto;
+  }
+  .save-form .confirm{ background:var(--work); color:#12151b; }
+  .save-form .cancel{ background:var(--surface-2); color:var(--text); }
+  .hint{ font-size:11px; color:var(--text-dim); margin:-10px 0 12px; }
+  .stepper-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0; border-bottom:1px solid var(--surface-2);
+  }
+  .stepper-row:last-of-type{ border-bottom:none; }
+  .stepper-row .label{ font-size:15px; font-weight:500; }
+  .stepper-row .sub{ font-size:12px; color:var(--text-dim); margin-top:2px; }
+  .stepper{
+    display:flex; align-items:center; gap:12px;
+  }
+  .stepper button{
+    width:44px; height:44px; border-radius:12px;
+    background:var(--surface-2); border:none; color:var(--text);
+    font-size:22px; font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .stepper .val{
+    min-width:56px; text-align:center; font-size:16px; font-weight:600;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-variant-numeric: tabular-nums;
+  }
+  .sheet-actions{
+    display:flex; gap:10px; margin-top:16px;
+  }
+  .sheet-actions button{
+    flex:1; padding:13px; border-radius:14px; border:none;
+    font-size:15px; font-weight:600;
+  }
+  .sheet-actions .close{ background:var(--surface-2); color:var(--text); }
+  .backdrop{
+    position:fixed; inset:0; background:rgba(0,0,0,0.4);
+    opacity:0; pointer-events:none; transition:opacity 0.28s ease;
+  }
+  .backdrop.open{ opacity:1; pointer-events:auto; }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div id="app" data-phase="idle">
+  <header>
+    <h1 id="headerTitle">Interval Timer</h1>
+    <div style="display:flex; gap:8px;">
+      <button class="icon-btn" id="voiceBtn" title="Voice cues">🔊</button>
+      <button class="icon-btn" id="settingsBtn" title="Settings">⚙️</button>
+    </div>
+  </header>
+  <main>
+    <div class="phase-label" id="phaseLabel">Ready</div>
+    <div class="ring-wrap">
+      <svg viewBox="0 0 300 300">
+        <circle class="ring-track" cx="150" cy="150" r="130"></circle>
+        <circle class="ring-progress" id="ringProgress" cx="150" cy="150" r="130"
+                stroke-dasharray="816.8" stroke-dashoffset="0"></circle>
+      </svg>
+      <div class="time-display">
+        <div class="time" id="timeDisplay">00:20</div>
+      </div>
+    </div>
+    <div class="round-label" id="roundLabel">8 rounds · 20s / 10s</div>
+  </main>
+  <div class="controls">
+    <button class="btn-reset" id="resetBtn">Reset</button>
+    <button class="btn-main" id="mainBtn">Start</button>
+    <button class="btn-skip" id="skipBtn">Skip</button>
+  </div>
+</div>
+<div class="backdrop" id="backdrop"></div>
+<div class="sheet" id="sheet">
+  <div class="sheet-handle"></div>
+  <h2>Set up your interval</h2>
+  <div class="presets" id="presets">
+    <span id="builtinPresets" style="display:contents;"></span>
+    <span id="customPresets" style="display:contents;"></span>
+    <button class="chip add-chip" id="savePresetBtn">+ Save current</button>
+  </div>
+  <div class="save-row hidden" id="saveRow">
+    <div class="save-form">
+      <input type="text" id="presetNameInput" placeholder="e.g. Shoulders, Back day" maxlength="24">
+      <button class="cancel" id="cancelSave">Cancel</button>
+      <button class="confirm" id="confirmSave">Save</button>
+    </div>
+    <div class="hint">Saves prep/work/rest/rounds as a routine you can reuse.</div>
+  </div>
+  <div class="stepper-row">
+    <div><div class="label">Get ready</div><div class="sub">Countdown before it starts</div></div>
+    <div class="stepper">
+      <button data-field="prep" data-dir="-1">−</button>
+      <span class="val" id="prepVal">5s</span>
+      <button data-field="prep" data-dir="1">+</button>
+    </div>
+  </div>
+  <div class="stepper-row">
+    <div><div class="label">Work</div><div class="sub">Active interval length</div></div>
+    <div class="stepper">
+      <button data-field="work" data-dir="-1">−</button>
+      <span class="val" id="workVal">20s</span>
+      <button data-field="work" data-dir="1">+</button>
+    </div>
+  </div>
+  <div class="stepper-row">
+    <div><div class="label">Rest</div><div class="sub">Between rounds (0 = none)</div></div>
+    <div class="stepper">
+      <button data-field="rest" data-dir="-1">−</button>
+      <span class="val" id="restVal">10s</span>
+      <button data-field="rest" data-dir="1">+</button>
+    </div>
+  </div>
+  <div class="stepper-row">
+    <div><div class="label">Rounds</div><div class="sub">Total work intervals</div></div>
+    <div class="stepper">
+      <button data-field="rounds" data-dir="-1">−</button>
+      <span class="val" id="roundsVal">8</span>
+      <button data-field="rounds" data-dir="1">+</button>
+    </div>
+  </div>
+  <div class="sheet-actions">
+    <button class="close" id="closeSheet">Close</button>
+  </div>
+</div>
+<script>
+(function(){
+  const app = document.getElementById('app');
+  const phaseLabel = document.getElementById('phaseLabel');
+  const timeDisplay = document.getElementById('timeDisplay');
+  const roundLabel = document.getElementById('roundLabel');
+  const ringProgress = document.getElementById('ringProgress');
+  const mainBtn = document.getElementById('mainBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const skipBtn = document.getElementById('skipBtn');
+  const settingsBtn = document.getElementById('settingsBtn');
+  const closeSheet = document.getElementById('closeSheet');
+  const sheet = document.getElementById('sheet');
+  const backdrop = document.getElementById('backdrop');
+  const voiceBtn = document.getElementById('voiceBtn');
+  const CIRC = 2 * Math.PI * 130;
+
+  let settings = { prep: 5, work: 20, rest: 10, rounds: 8 };
+  // Special mode for complex Tabata (4 cycles × 5 rounds)
+  let specialMode = null; // null | 'tabata4x5'
+
+  const limits = {
+    prep:  {min:0, max:30, step:1},
+    work:  {min:5, max:600, step:1},
+    rest:  {min:0, max:300, step:1},
+    rounds:{min:1, max:50, step:1}
+  };
+
+  function fmtSetting(field, v){ return field === 'rounds' ? String(v) : v + 's'; }
+
+  function refreshSettingUI(){
+    document.getElementById('prepVal').textContent = fmtSetting('prep', settings.prep);
+    document.getElementById('workVal').textContent = fmtSetting('work', settings.work);
+    document.getElementById('restVal').textContent = fmtSetting('rest', settings.rest);
+    document.getElementById('roundsVal').textContent = fmtSetting('rounds', settings.rounds);
+
+    if(specialMode === 'tabata4x5'){
+      roundLabel.textContent = '4×5 · 20s work / 5s rest (+10s between cycles)';
+    } else {
+      roundLabel.textContent = settings.rounds + (settings.rounds===1 ? ' round · ' : ' rounds · ') +
+        settings.work + 's' + (settings.rest>0 ? ' / ' + settings.rest + 's' : '');
+    }
+  }
+
+  document.querySelectorAll('.stepper button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      // Changing any stepper cancels special mode
+      specialMode = null;
+      const field = btn.dataset.field;
+      const dir = parseInt(btn.dataset.dir,10);
+      const L = limits[field];
+      let v = settings[field] + dir*L.step;
+      v = Math.max(L.min, Math.min(L.max, v));
+      settings[field] = v;
+      refreshSettingUI();
+      if(state.mode === 'idle') resetDisplayToIdle();
+      scheduleSaveLastSettings();
+    });
+  });
+
+  const BUILTIN_PRESETS = [
+    {
+      id:'tabata',
+      name:'Tabata · 4×5 (20/5)',
+      prep:5, work:20, rest:5, rounds:20,
+      special: 'tabata4x5'
+    },
+    {id:'hiit',     name:'HIIT · 40/20 ×10',    prep:10, work:40, rest:20, rounds:10},
+    {id:'strength', name:'Strength · 45/15 ×6', prep:10, work:45, rest:15, rounds:6},
+    {id:'stretch',  name:'Stretch hold · 30s ×12', prep:5, work:30, rest:0, rounds:12}
+  ];
+
+  function applyRoutine(p){
+    settings = { prep:p.prep, work:p.work, rest:p.rest, rounds:p.rounds };
+    specialMode = p.special || null;
+    refreshSettingUI();
+    if(state.mode === 'idle') resetDisplayToIdle();
+    scheduleSaveLastSettings();
+  }
+
+  document.getElementById('presets').addEventListener('click', (e)=>{
+    if(e.target.closest('#savePresetBtn')) return;
+    const delBtn = e.target.closest('.del');
+    if(delBtn){
+      if(delBtn.dataset.kind === 'builtin') deleteBuiltinPreset(delBtn.dataset.id);
+      else deleteCustomPreset(delBtn.dataset.id);
+      return;
+    }
+    const customChip = e.target.closest('.chip.custom');
+    if(customChip){
+      const p = customPresets.find(x => x.id === customChip.dataset.id);
+      if(p) applyRoutine(p);
+      return;
+    }
+    const builtinChip = e.target.closest('.chip.builtin');
+    if(builtinChip){
+      const p = BUILTIN_PRESETS.find(x => x.id === builtinChip.dataset.id);
+      if(p) applyRoutine(p);
+    }
+  });
+
+  // ---- storage ----
+  const CUSTOM_KEY = 'custom-routines';
+  const HIDDEN_KEY = 'hidden-builtin-routines';
+  const LAST_KEY = 'last-used-settings';
+  let customPresets = [];
+  let hiddenBuiltins = [];
+  let storageAvailable = !!(window.storage && window.storage.get && window.storage.set);
+
+  function escapeHtml(str){
+    return str.replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+  async function loadCustomPresets(){
+    if(!storageAvailable) return;
+    try{
+      const res = await window.storage.get(CUSTOM_KEY, false);
+      customPresets = res && res.value ? JSON.parse(res.value) : [];
+    }catch(e){ customPresets = []; }
+  }
+  async function persistCustomPresets(){
+    if(!storageAvailable) return;
+    try{ await window.storage.set(CUSTOM_KEY, JSON.stringify(customPresets), false); }catch(e){}
+  }
+  async function loadHiddenBuiltins(){
+    if(!storageAvailable) return;
+    try{
+      const res = await window.storage.get(HIDDEN_KEY, false);
+      hiddenBuiltins = res && res.value ? JSON.parse(res.value) : [];
+    }catch(e){ hiddenBuiltins = []; }
+  }
+  async function persistHiddenBuiltins(){
+    if(!storageAvailable) return;
+    try{ await window.storage.set(HIDDEN_KEY, JSON.stringify(hiddenBuiltins), false); }catch(e){}
+  }
+  let lastSettingsTimer = null;
+  function scheduleSaveLastSettings(){
+    if(!storageAvailable) return;
+    clearTimeout(lastSettingsTimer);
+    lastSettingsTimer = setTimeout(async ()=>{
+      try{ await window.storage.set(LAST_KEY, JSON.stringify({...settings, specialMode}), false); }catch(e){}
+    }, 350);
+  }
+  async function loadLastSettings(){
+    if(!storageAvailable) return;
+    try{
+      const res = await window.storage.get(LAST_KEY, false);
+      if(res && res.value){
+        const s = JSON.parse(res.value);
+        for(const f of ['prep','work','rest','rounds']){
+          if(typeof s[f] === 'number'){
+            const L = limits[f];
+            settings[f] = Math.max(L.min, Math.min(L.max, s[f]));
+          }
+        }
+        if(s.specialMode) specialMode = s.specialMode;
+      }
+    }catch(e){}
+  }
+
+  function renderBuiltinPresets(){
+    const container = document.getElementById('builtinPresets');
+    container.innerHTML = '';
+    BUILTIN_PRESETS.filter(p => !hiddenBuiltins.includes(p.id)).forEach(p=>{
+      const btn = document.createElement('button');
+      btn.className = 'chip builtin';
+      btn.dataset.id = p.id;
+      btn.innerHTML = escapeHtml(p.name) + '<span class="del" data-kind="builtin" data-id="'+p.id+'">×</span>';
+      container.appendChild(btn);
+    });
+  }
+  function deleteBuiltinPreset(id){
+    if(!hiddenBuiltins.includes(id)) hiddenBuiltins.push(id);
+    renderBuiltinPresets();
+    persistHiddenBuiltins();
+  }
+  function renderCustomPresets(){
+    const container = document.getElementById('customPresets');
+    container.innerHTML = '';
+    customPresets.forEach(p=>{
+      const btn = document.createElement('button');
+      btn.className = 'chip custom';
+      btn.dataset.id = p.id;
+      btn.innerHTML = escapeHtml(p.name) + '<span class="del" data-kind="custom" data-id="'+p.id+'">×</span>';
+      container.appendChild(btn);
+    });
+  }
+  function deleteCustomPreset(id){
+    customPresets = customPresets.filter(p => p.id !== id);
+    renderCustomPresets();
+    persistCustomPresets();
+  }
+
+  const saveRow = document.getElementById('saveRow');
+  const presetNameInput = document.getElementById('presetNameInput');
+  document.getElementById('savePresetBtn').addEventListener('click', ()=>{
+    saveRow.classList.remove('hidden');
+    presetNameInput.value = '';
+    presetNameInput.focus();
+  });
+  document.getElementById('cancelSave').addEventListener('click', ()=>{
+    saveRow.classList.add('hidden');
+  });
+  document.getElementById('confirmSave').addEventListener('click', confirmSaveRoutine);
+  presetNameInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') confirmSaveRoutine(); });
+  function confirmSaveRoutine(){
+    const name = presetNameInput.value.trim();
+    if(!name) return;
+    customPresets.push({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+      name: name.slice(0,24),
+      prep: settings.prep, work: settings.work, rest: settings.rest, rounds: settings.rounds
+    });
+    renderCustomPresets();
+    persistCustomPresets();
+    saveRow.classList.add('hidden');
+  }
+
+  settingsBtn.addEventListener('click', ()=>{ sheet.classList.add('open'); backdrop.classList.add('open'); });
+  closeSheet.addEventListener('click', closeSettings);
+  backdrop.addEventListener('click', closeSettings);
+  function closeSettings(){ sheet.classList.remove('open'); backdrop.classList.remove('open'); }
+
+  // ---- voice ----
+  let voiceOn = true;
+  voiceBtn.classList.add('active');
+  voiceBtn.addEventListener('click', ()=>{
+    voiceOn = !voiceOn;
+    voiceBtn.classList.toggle('active', voiceOn);
+    voiceBtn.textContent = voiceOn ? '🔊' : '🔇';
+    if(!voiceOn && window.speechSynthesis) window.speechSynthesis.cancel();
+  });
+  function speak(text){
+    if(!voiceOn || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = 1.05; u.pitch = 1.0; u.volume = 1.0;
+    window.speechSynthesis.speak(u);
+  }
+
+  // ---- beeps ----
+  let audioCtx = null;
+  function ensureAudio(){ if(!audioCtx){ audioCtx = new (window.AudioContext||window.webkitAudioContext)(); } }
+  function beep(freq, dur, when=0){
+    if(!audioCtx) return;
+    const t0 = audioCtx.currentTime + when;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine'; osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.exponentialRampToValueAtTime(0.5, t0+0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t0+dur);
+    osc.connect(gain); gain.connect(audioCtx.destination);
+    osc.start(t0); osc.stop(t0+dur+0.02);
+  }
+  function tickBeep(){ beep(880, 0.08); }
+  function transitionBeep(){ beep(660,0.09,0); beep(990,0.12,0.11); }
+  function finishBeep(){ beep(880,0.15,0); beep(1175,0.15,0.16); beep(1568,0.22,0.32); }
+
+  // ---- wake lock ----
+  let wakeLock = null;
+  async function requestWakeLock(){
+    try{ if('wakeLock' in navigator){ wakeLock = await navigator.wakeLock.request('screen'); } }catch(e){}
+  }
+  function releaseWakeLock(){ if(wakeLock){ wakeLock.release().catch(()=>{}); wakeLock = null; } }
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.visibilityState === 'visible' && state.mode === 'running') requestWakeLock();
+  });
+
+  // ---- timer engine ----
+  let state = { mode:'idle', phases:[], idx:-1, endTs:0, remaining:0, lastTickSecond:null, pausedRemaining:null };
+  let rafId = null;
+
+  function buildPhases(){
+    const p = [];
+    if(settings.prep > 0) p.push({type:'prep', dur:settings.prep});
+
+    if(specialMode === 'tabata4x5'){
+      // 4 cycles × 5 rounds of 20s work / 5s rest, with 10s rest between cycles
+      let roundNum = 0;
+      for(let cycle = 1; cycle <= 4; cycle++){
+        for(let r = 1; r <= 5; r++){
+          roundNum++;
+          p.push({type:'work', dur:20, round:roundNum, cycle:cycle});
+          if(r < 5){
+            // short rest inside the cycle
+            p.push({type:'rest', dur:5, round:roundNum, cycle:cycle});
+          } else if(cycle < 4){
+            // longer rest between cycles
+            p.push({type:'rest', dur:10, round:roundNum, cycle:cycle, long:true});
+          }
+        }
+      }
+    } else {
+      // Normal simple mode
+      for(let i=1; i<=settings.rounds; i++){
+        p.push({type:'work', dur:settings.work, round:i});
+        if(settings.rest > 0 && i < settings.rounds){
+          p.push({type:'rest', dur:settings.rest, round:i});
+        }
+      }
+    }
+    return p;
+  }
+
+  function phaseWord(type){
+    return type==='prep' ? 'Get ready' : type==='work' ? 'Work' : type==='rest' ? 'Rest' : 'Done';
+  }
+
+  function resetDisplayToIdle(){
+    app.dataset.phase = 'idle';
+    phaseLabel.textContent = 'Ready';
+    const dur = settings.prep>0 ? settings.prep : settings.work;
+    timeDisplay.textContent = fmtTime(dur);
+    ringProgress.style.strokeDasharray = CIRC;
+    ringProgress.style.strokeDashoffset = 0;
+    mainBtn.textContent = 'Start';
+    refreshSettingUI();
+  }
+
+  function fmtTime(sec){
+    sec = Math.max(0, Math.ceil(sec));
+    const m = Math.floor(sec/60), s = sec%60;
+    return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  }
+
+  function startTimer(){
+    ensureAudio();
+    if(state.mode === 'idle' || state.mode === 'done'){
+      state.phases = buildPhases();
+      state.idx = -1;
+      goToNextPhase();
+    } else if(state.mode === 'paused'){
+      state.endTs = Date.now() + state.pausedRemaining;
+      state.mode = 'running';
+    }
+    requestWakeLock();
+    mainBtn.textContent = 'Pause';
+    loop();
+  }
+
+  function pauseTimer(){
+    state.mode = 'paused';
+    state.pausedRemaining = state.endTs - Date.now();
+    mainBtn.textContent = 'Resume';
+    if(rafId) cancelAnimationFrame(rafId);
+    releaseWakeLock();
+  }
+
+  function resetTimer(){
+    state.mode = 'idle';
+    if(rafId) cancelAnimationFrame(rafId);
+    releaseWakeLock();
+    if(window.speechSynthesis) window.speechSynthesis.cancel();
+    resetDisplayToIdle();
+  }
+
+  function skipPhase(){
+    if(state.mode !== 'running' && state.mode !== 'paused') return;
+    goToNextPhase();
+    if(state.mode !== 'done'){
+      state.mode = 'running';
+      mainBtn.textContent = 'Pause';
+      requestWakeLock();
+      loop();
+    }
+  }
+
+  function goToNextPhase(){
+    state.idx++;
+    if(state.idx >= state.phases.length){ finishAll(); return; }
+    const ph = state.phases[state.idx];
+    state.mode = 'running';
+    state.endTs = Date.now() + ph.dur*1000;
+    state.lastTickSecond = null;
+    app.dataset.phase = ph.type;
+    phaseLabel.textContent = phaseWord(ph.type);
+
+    if(ph.round){
+      if(specialMode === 'tabata4x5' && ph.cycle){
+        roundLabel.textContent = 'Cycle ' + ph.cycle + ' · Round ' + ((ph.round-1)%5 + 1) + ' of 5';
+      } else {
+        roundLabel.textContent = 'Round ' + ph.round + ' of ' + settings.rounds;
+      }
+    } else if(ph.type === 'prep'){
+      roundLabel.textContent = 'Starting soon';
+    } else {
+      roundLabel.textContent = '';
+    }
+
+    transitionBeep();
+    if(ph.type === 'prep') speak('Get ready');
+    else if(ph.type === 'work') speak(ph.round ? ('Go, round ' + ph.round) : 'Go');
+    else speak(ph.long ? 'Long rest' : 'Rest');
+  }
+
+  function finishAll(){
+    state.mode = 'done';
+    app.dataset.phase = 'done';
+    phaseLabel.textContent = 'Done';
+    timeDisplay.textContent = '00:00';
+    const totalRounds = specialMode === 'tabata4x5' ? 20 : settings.rounds;
+    roundLabel.textContent = 'Nice work — ' + totalRounds + ' rounds complete';
+    ringProgress.style.strokeDashoffset = 0;
+    mainBtn.textContent = 'Start';
+    finishBeep();
+    speak('Workout complete');
+    releaseWakeLock();
+    if(rafId) cancelAnimationFrame(rafId);
+  }
+
+  function loop(){
+    if(state.mode !== 'running'){ return; }
+    const ph = state.phases[state.idx];
+    const remainingMs = state.endTs - Date.now();
+    const remainingSec = remainingMs/1000;
+    timeDisplay.textContent = fmtTime(remainingSec);
+    const frac = Math.max(0, Math.min(1, remainingMs / (ph.dur*1000)));
+    ringProgress.style.strokeDasharray = CIRC;
+    ringProgress.style.strokeDashoffset = CIRC * (1 - frac);
+    const wholeSecLeft = Math.ceil(remainingSec);
+    if(wholeSecLeft <= 3 && wholeSecLeft >= 1 && wholeSecLeft !== state.lastTickSecond){
+      state.lastTickSecond = wholeSecLeft;
+      tickBeep();
+    }
+    if(remainingMs <= 0){
+      goToNextPhase();
+    }
+    if(state.mode === 'running'){
+      rafId = requestAnimationFrame(loop);
+    }
+  }
+
+  mainBtn.addEventListener('click', ()=>{
+    if(state.mode === 'running') pauseTimer();
+    else startTimer();
+  });
+  resetBtn.addEventListener('click', resetTimer);
+  skipBtn.addEventListener('click', skipPhase);
+
+  async function init(){
+    await Promise.all([loadLastSettings(), loadHiddenBuiltins(), loadCustomPresets()]);
+    renderBuiltinPresets();
+    renderCustomPresets();
+    refreshSettingUI();
+    resetDisplayToIdle();
+  }
+  init();
+})();
+</script>
+</body>
+</html>
