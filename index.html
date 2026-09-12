@@ -317,10 +317,6 @@
 
   function calcTotalSeconds(){
     if(specialMode === 'tabata4x5'){
-      // 4 cycles × 5 rounds of 20s work
-      // Inside each cycle: 4 short rests of 5s
-      // Between cycles: 3 long rests of 10s
-      // + prep
       return settings.prep + (20 * 20) + (5 * 16) + (10 * 3);
     }
     const workTotal = settings.work * settings.rounds;
@@ -328,7 +324,21 @@
     return settings.prep + workTotal + restTotal;
   }
 
+  function calcRemainingTotal(){
+    if(state.mode === 'idle' || state.mode === 'done' || !state.phases.length){
+      return calcTotalSeconds();
+    }
+    // Current phase remaining
+    let remaining = Math.max(0, (state.endTs - Date.now()) / 1000);
+    // Add all future phases
+    for(let i = state.idx + 1; i < state.phases.length; i++){
+      remaining += state.phases[i].dur;
+    }
+    return Math.ceil(remaining);
+  }
+
   function fmtTotal(sec){
+    sec = Math.max(0, Math.ceil(sec));
     const m = Math.floor(sec / 60);
     const s = sec % 60;
     return m + ':' + String(s).padStart(2,'0');
@@ -558,7 +568,7 @@
     osc.connect(gain); gain.connect(audioCtx.destination);
     osc.start(t0); osc.stop(t0+dur+0.02);
   }
-  function tickBeep(){ beep(1100, 0.12, 0, 0.65); }          // clearer last-3-seconds beep
+  function tickBeep(){ beep(1100, 0.12, 0, 0.65); }
   function transitionBeep(){ beep(660,0.09,0); beep(990,0.12,0.11); }
   function finishBeep(){ beep(880,0.15,0); beep(1175,0.15,0.16); beep(1568,0.22,0.32); }
 
@@ -700,7 +710,7 @@
     timeDisplay.textContent = '00:00';
     const totalRounds = specialMode === 'tabata4x5' ? 20 : settings.rounds;
     roundLabel.textContent = 'Nice work — ' + totalRounds + ' rounds complete';
-    totalLabel.textContent = 'Total ' + fmtTotal(calcTotalSeconds());
+    totalLabel.textContent = 'Total 0:00';
     ringProgress.style.strokeDashoffset = 0;
     mainBtn.textContent = 'Start';
     finishBeep();
@@ -718,6 +728,10 @@
     const frac = Math.max(0, Math.min(1, remainingMs / (ph.dur*1000)));
     ringProgress.style.strokeDasharray = CIRC;
     ringProgress.style.strokeDashoffset = CIRC * (1 - frac);
+
+    // Live total remaining time
+    totalLabel.textContent = 'Left ' + fmtTotal(calcRemainingTotal());
+
     const wholeSecLeft = Math.ceil(remainingSec);
     if(wholeSecLeft <= 3 && wholeSecLeft >= 1 && wholeSecLeft !== state.lastTickSecond){
       state.lastTickSecond = wholeSecLeft;
